@@ -9,6 +9,17 @@ table.list{
     width:100%;
 }
 
+#cancelButton {
+    width: 30%;
+    background-color: red;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 td, th {
     border: 1px solid #dddddd;
     text-align: left;

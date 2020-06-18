@@ -1,11 +1,13 @@
 var selectedRow = null
+var submitValue = document.getElementById("submitValue")
 
 
 
 function onFormSubmit(){
     var formData = readFormData();
-    if(selectedRow == null)
+    if(selectedRow == null){
        insertFormData(formData)
+    }
     else 
        updateData(formData)
     resetForm();
@@ -50,7 +52,11 @@ function insertFormData (formData) {
    cell5.innerHTML = formData.checkbox
    cell5 = newRow.insertCell(5)
    cell5.innerHTML = `<div id="buttons"><button onClick="editFormData(this)">Edit</button> <button onClick="deleteData(this)"> Delete</button></div>`
+
 }
+
+
+
 
 function editFormData (td){
  selectedRow = td.parentElement.parentElement.parentElement
@@ -59,6 +65,7 @@ function editFormData (td){
   document.getElementById("email").value  = selectedRow.cells[2].innerHTML
   document.getElementById("gender").value  = selectedRow.cells[3].innerHTML
   document.getElementById("checkbox").checked = selectedRow.cells[4].innerHTML
+  submitValue.value="update"
 }
 
 function updateData (formData) {
@@ -67,7 +74,7 @@ function updateData (formData) {
     selectedRow.cells[2].innerHTML = formData.email
     selectedRow.cells[3].innerHTML = formData.gender
     selectedRow.cells[4].innerHTML = formData.checkbox
-    
+    submitValue.value="Submit"
 }
 
 function deleteData (td){
@@ -77,5 +84,11 @@ function deleteData (td){
         resetForm();
     }
 
+}
+
+function handleCancel (){
+    confirm("are you sure you want to cancel")
+    resetForm()
+    submitValue.value="Submit"
 }
 
