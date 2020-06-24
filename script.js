@@ -1,5 +1,8 @@
 var selectedRow = null
-var submitValue = document.getElementById("submitValue")
+var submitValue = document.getElementById("submitValue");
+var cancelButton = document.getElementById("cancelButton")
+
+
 
 
 
@@ -66,6 +69,7 @@ function editFormData (td){
   document.getElementById("gender").value  = selectedRow.cells[3].innerHTML
   document.getElementById("checkbox").checked = selectedRow.cells[4].innerHTML
   submitValue.value="update"
+  
 }
 
 function updateData (formData) {
@@ -75,6 +79,8 @@ function updateData (formData) {
     selectedRow.cells[3].innerHTML = formData.gender
     selectedRow.cells[4].innerHTML = formData.checkbox
     submitValue.value="Submit"
+   
+    
 }
 
 function deleteData (td){
